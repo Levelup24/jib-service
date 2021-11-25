@@ -1,0 +1,22 @@
+entity Jib {
+	 balance BigDecimal required,
+     customerId Long required ,
+     createAt Timestamp
+}
+
+entity JibTransaction {
+	jibId Long required ,
+    createAt Timestamp required,
+    transactionType TransactionType required,
+    transactionAmount BigDecimal required   
+}
+
+enum TransactionType{
+	DEPOSIT ,WITHDRAW
+}
+
+relationship OneToMany {
+	Jib{jibTransaction} to JibTransaction{jib},
+    GenerationRule{timeSlot} to TimeSlot{generationRule}
+   
+}
