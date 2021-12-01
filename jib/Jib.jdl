@@ -12,7 +12,7 @@ entity JibTransaction {
 }
 
 enum TransactionType{
-	DEPOSIT ,WITHDRAW
+	DEBIT ,CREDIT
 }
 
 relationship OneToMany {
