@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity JibTransaction.
+    -->
+    <changeSet id="20211130222600-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="jib_id"
+                                 baseTableName="jib_transaction"
+                                 constraintName="fk_jib_transaction_jib_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jib"/>
+
+    </changeSet>
+</databaseChangeLog>

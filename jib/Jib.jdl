@@ -1,12 +1,10 @@
 entity Jib {
 	 balance BigDecimal required,
-     customerId Long required ,
-     createAt Timestamp
+     customerId Long required
 }
 
 entity JibTransaction {
-	jibId Long required ,
-    createAt Timestamp required,
+	jibId Long required
     transactionType TransactionType required,
     transactionAmount BigDecimal required   
 }
@@ -16,7 +14,12 @@ enum TransactionType{
 }
 
 relationship OneToMany {
-	Jib{jibTransaction} to JibTransaction{jib},
-    GenerationRule{timeSlot} to TimeSlot{generationRule}
+	Jib{jibTransaction} to JibTransaction{jib}
    
 }
+paginate Jib, JibTransaction with pagination
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
