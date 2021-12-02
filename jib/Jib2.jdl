@@ -1,0 +1,27 @@
+entity Jib {
+	 balance BigDecimal required,
+     customerId Long required,
+     createdAt Instant required
+}
+
+entity JibTransaction {
+	jibId Long required
+    transactionType TransactionType required,
+    transactionAmount BigDecimal required,
+    createdAt Instant required
+}
+
+enum TransactionType{
+	DEPOSIT ,WITHDRAW
+}
+
+relationship OneToMany {
+	Jib{jibTransaction} to JibTransaction{jib}
+
+}
+paginate Jib, JibTransaction with pagination
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
