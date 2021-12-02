@@ -1,0 +1,46 @@
+{
+    "name": "JibTransaction",
+    "fields": [
+        {
+            "fieldName": "jibId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transactionType",
+            "fieldType": "TransactionType",
+            "fieldValues": "DEPOSIT,WITHDRAW",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transactionAmount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "jib",
+            "otherEntityRelationshipName": "jibTransaction",
+            "relationshipName": "jib",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20211130222600",
+    "entityTableName": "jib_transaction",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
