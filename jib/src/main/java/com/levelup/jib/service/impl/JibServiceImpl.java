@@ -85,4 +85,5 @@ public class JibServiceImpl implements JibService {
         log.debug("Request to delete Jib : {}", id);
         jibRepository.deleteById(id);
     }
+
 }

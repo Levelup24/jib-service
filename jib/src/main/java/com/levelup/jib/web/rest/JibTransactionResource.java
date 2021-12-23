@@ -1,10 +1,13 @@
 package com.levelup.jib.web.rest;
 
+import com.levelup.jib.service.JibService;
 import com.levelup.jib.service.JibTransactionService;
+import dto.JibDTO;
 import dto.JibTransactionDTO;
 import com.levelup.jib.web.rest.util.HeaderUtil;
 import com.levelup.jib.web.rest.util.PaginationUtil;
 import com.levelup.jib.web.rest.util.ResponseUtil;
+import enumeration.TransactionType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,9 +39,11 @@ public class JibTransactionResource {
     private String applicationName;
 
     private final JibTransactionService jibTransactionService;
+    private final JibService jibService;
 
-    public JibTransactionResource(JibTransactionService jibTransactionService) {
+    public JibTransactionResource(JibTransactionService jibTransactionService, JibService jibService) {
         this.jibTransactionService = jibTransactionService;
+        this.jibService = jibService;
     }
 
     /**
@@ -55,6 +60,13 @@ public class JibTransactionResource {
             throw new BadRequestAlertException("A new jibTransaction cannot already have an ID", ENTITY_NAME, "idexists");
         }
         JibTransactionDTO result = jibTransactionService.save(jibTransactionDTO);
+        JibDTO jib = jibService.findOne(jibTransactionDTO.getJibId()).get();
+        if (jibTransactionDTO.getTransactionType().equals(TransactionType.WITHDRAW))
+            jib.getBalance().subtract(jibTransactionDTO.getTransactionAmount());
+        else if (jibTransactionDTO.getTransactionType().equals(TransactionType.WITHDRAW)) {
+            jib.getBalance().add(jibTransactionDTO.getTransactionAmount());
+        }
+        jibService.save(jib);
         return ResponseEntity.created(new URI("/api/jib-transactions/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
