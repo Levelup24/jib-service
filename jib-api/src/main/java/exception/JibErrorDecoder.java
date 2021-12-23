@@ -10,13 +10,11 @@ public class JibErrorDecoder implements ErrorDecoder {
     public Exception decode(String s, Response response) {
 
         switch (response.status()){
-            case 401:
-                return new RuntimeException();
-            case 404:
-                return new RuntimeException();
-            case 403:
-                return new RuntimeException();
-            default:
+             case 404: {
+                 System.out.println("*** jib nist");
+                 return new JibNotFoundException("in jib nist");
+             }
+             default:
                 return new RuntimeException();
         }
     }
