@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 
-@FeignClient(name = "jib",configuration = JibErrorDecoder.class, url = "${jib.host}")
+@FeignClient(name = "jib-transaction",configuration = JibErrorDecoder.class, url = "${jib.host}")
 public interface JibTransactionClient {
 
     @PostMapping("/api/jib-transactions")
