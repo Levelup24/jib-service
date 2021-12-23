@@ -5,9 +5,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-/**
- * A DTO for the {@link com.levelup.jib.domain.Jib} entity.
- */
+
 public class JibDTO implements Serializable {
 
     private Long id;
