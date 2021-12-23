@@ -3,7 +3,7 @@ package com.levelup.jib.service.impl;
 import com.levelup.jib.service.JibTransactionService;
 import com.levelup.jib.domain.JibTransaction;
 import com.levelup.jib.repository.JibTransactionRepository;
-import com.levelup.jib.service.dto.JibTransactionDTO;
+import dto.JibTransactionDTO;
 import com.levelup.jib.service.mapper.JibTransactionMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

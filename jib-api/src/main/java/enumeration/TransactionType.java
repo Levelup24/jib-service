@@ -1,4 +1,4 @@
-package com.levelup.jib.domain.enumeration;
+package enumeration;
 
 /**
  * The TransactionType enumeration.

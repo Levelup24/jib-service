@@ -1,7 +1,7 @@
 package com.levelup.jib.web.rest;
 
 import com.levelup.jib.service.JibTransactionService;
-import com.levelup.jib.service.dto.JibTransactionDTO;
+import dto.JibTransactionDTO;
 import com.levelup.jib.web.rest.util.HeaderUtil;
 import com.levelup.jib.web.rest.util.PaginationUtil;
 import com.levelup.jib.web.rest.util.ResponseUtil;

@@ -1,6 +1,6 @@
 package com.levelup.jib.service;
 
-import com.levelup.jib.service.dto.JibDTO;
+import dto.JibDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

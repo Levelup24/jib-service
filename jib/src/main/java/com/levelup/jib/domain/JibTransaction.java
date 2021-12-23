@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.levelup.jib.domain.enumeration.TransactionType;
+import enumeration.TransactionType;
 
 /**
  * A JibTransaction.

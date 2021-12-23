@@ -1,14 +1,13 @@
-package com.levelup.jib.service.dto;
+package dto;
+
+import enumeration.TransactionType;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
-import com.levelup.jib.domain.enumeration.TransactionType;
 
-/**
- * A DTO for the {@link com.levelup.jib.domain.JibTransaction} entity.
- */
+
 public class JibTransactionDTO implements Serializable {
 
     private Long id;

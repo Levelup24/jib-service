@@ -2,7 +2,7 @@ package com.levelup.jib.service.mapper;
 
 
 import com.levelup.jib.domain.*;
-import com.levelup.jib.service.dto.JibDTO;
+import dto.JibDTO;
 
 import org.mapstruct.*;
 

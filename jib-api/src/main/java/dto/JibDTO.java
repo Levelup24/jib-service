@@ -1,4 +1,4 @@
-package com.levelup.jib.service.dto;
+package dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
